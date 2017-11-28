@@ -10,5 +10,10 @@ a {
 
 .background-image {
   background-image: url('jumbotron.jpg');
-  opacity: .5;
+  opacity: .8;
+}
+
+body {
+  background-color: #79BD9A;
+  
 }
