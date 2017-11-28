@@ -1,8 +1,14 @@
 .jumbotron {
   min-height: 300px;
   padding-top: 75px;
+  color:white;
 }
 
 a {
 	color: grey;
+}
+
+.background-image {
+  background-image: url('jumbotron.jpg');
+  opacity: .5;
 }

@@ -2,15 +2,9 @@ import React from "react";
 import "./Jumbotron.css";
 
 const Jumbotron = () => (
-  <div className="jumbotron text-center">
-    <h1>Delicious Recipes</h1>
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="http://www.recipepuppy.com/about/api/"
-    >
-      Powered by Recipe Puppy
-    </a>
+  <div className="jumbotron text-center background-image">
+    <h1><span class="glyphicon glyphicon-education" aria-hidden="true"></span>Tour Guide</h1>
+    
   </div>
 );
 
