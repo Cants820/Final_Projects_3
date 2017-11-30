@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "./components/Jumbotron";
-import Nav from "./components/Nav";
+// import Nav from "./components/Nav";
 import Button from "./components/Button";
 // import API from "./utils/API";
 import Results from './components/Results'
@@ -15,7 +15,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Nav />
         <Jumbotron />
         <Results />
 
