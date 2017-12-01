@@ -1,8 +1,5 @@
 import axios from "axios";
 
-
-
-
 export default {
 
   getVenuesId: function(param1,param2){
@@ -34,31 +31,31 @@ export default {
     return axios.post("/users/:user_id/venues/:id");
   },
 
-  getLocation: function (data) {
+  // searchVenues: function (venue, category) {
 
+  //   const url = "https://api.foursquare.com/v2/venues/search";
+  //   const clientId = 'CEGQALQDZYFZJO04IK5IE1G5HMED5EPPHRKA5MPTBAV53UHV';
+  //   const clientSecret = 'XFX52BTLE0XLPF53ISBLGB25NC34PQFE5FCLQIUARLKNS3WN';
 
-    const url = "https://api.foursquare.com/v2/venues/search";
-    const clientId = 'CEGQALQDZYFZJO04IK5IE1G5HMED5EPPHRKA5MPTBAV53UHV';
-    const clientSecret = 'XFX52BTLE0XLPF53ISBLGB25NC34PQFE5FCLQIUARLKNS3WN';
+  //   return axios.get(url, {
+  //     params: {
+  //       'near':venue,
+  //       'category': category
+  //       'client_id': clientId,
+  //       'client_secret': clientSecret,
+  //       'limit': '5',
+  //       'v': '20171130'
+  //     }
+  //   })
 
-    return axios.get(url, {
-      params: {
-        'near':data.query,
-        'client_id': clientId,
-        'client_secret': clientSecret,
-        'limit': '5',
-        'v': '20171130'
-      }
-    })
-
-    .then(function(response) {
-      console.log(response);
-      return response
-    })
-    .catch(function(error) {
-      console.log(error)
-    })
-  }
+  //   .then(function(response) {
+  //     console.log(response);
+  //     return response
+  //   })
+  //   .catch(function(error) {
+  //     console.log(error)
+  //   })
+  // }
 
 
 };
