@@ -3,9 +3,16 @@ import "./Results.css";
 import  { Image } from 'react-bootstrap';
 
 
-const Results = () => (
-<div>
+class Results extends Component.React => (
+
+    constructor(props) {
+        super(props);
+    }
+    
+
       
+    render() {
+      return <div>
       <div className="card">
           <Image src='http://via.placeholder.com/200x200'/>
           <a href='http://google.com' target='_blank'>
@@ -35,9 +42,9 @@ const Results = () => (
         </div>
         </a>
       </div>
-      
-    
-</div>
+    </div>
+}
+
 );
 
 export default Results;

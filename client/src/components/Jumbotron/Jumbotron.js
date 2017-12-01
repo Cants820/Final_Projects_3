@@ -2,6 +2,7 @@ import React from "react";
 import "./Jumbotron.css";
 import  { DropdownButton, MenuItem } from 'react-bootstrap';
 const Jumbotron = () => (
+<<<<<<< HEAD
 
 
 
@@ -32,6 +33,17 @@ const Jumbotron = () => (
 
     </div>
 
+=======
+  <div className="jumbotron text-center">
+    <h1>Delicious Recipes</h1>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="http://www.recipepuppy.com/about/api/"
+    >
+      Powered by Recipe Puppy
+    </a>
+>>>>>>> 130b0f3d4b84fa2e1f89883aaedcac90036f5632
   </div>
 );
 
