@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/venuesId", { params: { "near": param1, "categoryId": param2}});
   },
 
-  searchVenues: function(paraVem1,param2){
+  searchVenues: function(param1,param2){
     return axios.get("/api/venues", { params: { "near": param1, "categoryId": param2}});
   },
 
