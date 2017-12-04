@@ -8,8 +8,7 @@ const Jumbotron = () => (
     <div className='row'>
         <ButtonToolbar className="pull-right">
             <ButtonGroup>
-              <Button>Sign In</Button>
-              <Button>Login</Button>
+              <Button href="/auth/google" id="google-btn" src="/assets/img/google.png" alt="Google+ Login">Google +</Button>
             </ButtonGroup>
         </ButtonToolbar>
               
