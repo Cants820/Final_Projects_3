@@ -5,18 +5,18 @@ import Main from "./pages/Main";
 // import Results from "./components/Results";
 // import { AppRegistry, View, Image } from 'react-native';
 import AddModal from "./components/AddModal";
+import Search from "./components/Search";
 // import Search from "./components/Search"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-class App extends Component {
-  
+class App extends Component { 
   render() {
     return (
        <div>
           <Main />
           <Router>
               <Switch>
-                <Route exact path="/" component= {Main} />        
+                <Route exact path="/" component= {Search} />        
                 <Route exact path="/modal" component ={AddModal} />
               </Switch>
           </Router>

@@ -1,86 +1,97 @@
 import React, { Component } from "react";
 import "./Main.css";
 import { DropdownButton,MenuItem, ButtonGroup, Button, ButtonToolbar} from 'react-bootstrap';
-import API from '../../utils/API'
+import API from '../../utils/API';
+import SearchResults from '../../components/SearchResults';
 
 class Main extends Component {
-
   state = {
     location: "",
     category: "",
-    result: [],
-    trending: []
+    venue: [],
   }
-
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     const {name, value} = event.target;
     this.setState({
       [name]:value
     });
   }
-
   handleFormSubmit = (event) => {
     event.preventDefault();
-    API.searchTrending(this.state.location,this.state.category)
+    API.searchVenues(this.state.location,this.state.category)
     .then((res) => {
-      this.setState({articles: res.data.response.docs})
+      console.log('category',this.state.category);
+      console.log(res.data.response.docs);
+      this.setState({venue: res.data.response.docs})
     })
   }
-
   render() {
-
-        return (
-        <div className="jumbotron text-center background-image">
-          <div className='row'>
-              <ButtonToolbar className="pull-right">
-                  <ButtonGroup>
-                    <Button>Sign In</Button>
-                    <Button>Login</Button>
-                  </ButtonGroup>
-              </ButtonToolbar>
-                    
-          </div>
-
-          <div className='row'>
+    return (
+      <div className="jumbotron text-center background-image">
+        <div className='row'>
+          <ButtonToolbar className="pull-right">
+              <ButtonGroup>
+                <Button>Sign In</Button>
+                <Button>Login</Button>
+              </ButtonGroup>
+          </ButtonToolbar>
+        </div>
+      <div className='row'>
           <h1><span className="glyphicon glyphicon-education" aria-hidden="true"></span>Tour Guide</h1>
-          </div>
+      </div>
             
-          <div className='row'>
+        <div className='row'>
 
           <div className='col-sm-4'></div>
             <div className='col-sm-4'>
-              <input type="text"
-               className="form-control" 
+              <input
+               className="form-control locationTextbox" 
                placeholder="Location"
-               aria-describedby="basic-addon1" 
-               value={this.state.category} 
+  
                onChange={this.handleInputChange} 
-               name="category" /><br/>
-              <label>Category:</label>
-            <DropdownButton onChange={this.state.handleInputChange} value={this.state.category}>
-                <MenuItem eventKey="1" value="restaurant" active>Restaurant</MenuItem>
-                <MenuItem eventKey="2" value="museum">Museum</MenuItem>
-                <MenuItem eventKey="3" value="Hotels">Hotels</MenuItem>
-                <MenuItem eventKey="4" value="Hostels">Hostels</MenuItem>
-            </DropdownButton>
+               name="location"
+               type="text"
+                />
 
-              <br/>
-
-              <button className="btn btn-default" onClick={this.state.handleFormSubmit} type="submit">Search</button>
+            <div>
+              <label>
+              Please select a category:
+                <select onChange={this.handleInputChange} name={this.state.category}>
+                    <option value="Arts & Entertainment">Arts & Entertainment</option>
+                    <option value="Historic Site">Historic Site</option>
+                    <option value="4bf58dd8d48988d17f941735">Movie Theater</option>
+                    <option value="4bf58dd8d48988d181941735">Museum</option>
+                    <option value="4bf58dd8d48988d1e5931735">Music Venue</option>
+                    <option value="4bf58dd8d48988d1f2931735">Performing Arts Venue</option>
+                    <option value="507c8c4091d498d9fc8c67a9">Public Art</option>
+                    <option value="4bf58dd8d48988d184941735">Stadium</option>
+                    <option value="4bf58dd8d48988d182941735">Theme Park</option>
+                    <option value="56aa371be4b08b9a8d573520">Tour Provider</option>
+                    <option value="4bf58dd8d48988d17b941735">Zoo</option>
+                    <option value="4d4b7105d754a06372d81259">College & University</option>
+                    <option value="4d4b7105d754a06373d81259">Event</option>
+                    <option value="4d4b7105d754a06376d81259">Nightlife Spot</option>
+                    <option value="4d4b7105d754a06377d81259">Outdoors & Recreation</option>                    
+                </select>
+              </label>
             </div>
-           <div className='col-sm-4'>
-           </div>
-
+          <button className="btn btn-default" onClick={this.handleFormSubmit} type="submit">Search</button>
+            </div>
+         <div className='col-sm-4'>
           </div>
 
-        </div>
-        // {this.state.result ? (
-        //   <Results 
-        //   locations = {this.state.result} />) 
-        // : 
-        //   (<h3>No Results to Display</h3>)}
-        // )}
-
+          </div>
+          <div>
+               {this.state.venue ? (
+                <SearchResults 
+                venue = {this.state.venue} />) 
+              : 
+                (<h3>No Results to Display</h3>)}
+              )}
+          </div>
+          
+      </div>
   )}
 }
+
 export default Main;

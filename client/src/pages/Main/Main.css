@@ -1,11 +1,13 @@
 .jumbotron {
   min-height: 300px;
   padding-top: 75px;
-  color:white;
+  color:blue;
+  font-family: 'Spectral SC', serif;
 }
 
 a {
 	color: grey;
+  font-family: 'Spectral SC', serif;
 }
 
 .background-image {
@@ -15,5 +17,9 @@ a {
 
 body {
   background-color: #79BD9A;
-  
+  font-family: 'Spectral SC', serif;  
+}
+
+.locationTextbox {
+   padding: 0px 8px;
 }

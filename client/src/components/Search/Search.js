@@ -12,16 +12,16 @@ class Search extends React.Component {
     trending: []
   }
 
-   componentDidMount(){
-    console.log("Search Mount")
-  }
+  componentDidMount(){
+      // trendingLocation();      
+    }
 
-  trendingLocation = () => {
-    API.searchTrending("San Fransisco", "Restaurant" ).then(res => {
-        console.log("result", res)
-        this.setState({trending: res.data})
-        .catch(err => console.log(err));
-  }
+  // trendingLocation = () => {
+  //   API.searchTrending("San Fransisco", "Restaurant" ).then(res => {
+  //       console.log("result", res)
+  //       this.setState({trending: res.data})
+  //       .catch(err => console.log(err));
+  // }
 
   // handleInputChange = event => {
   //   const { name, value} = event.target;
@@ -32,19 +32,18 @@ class Search extends React.Component {
 
   // handleFormSubmit = (event) => {
   //   event.preventDefault();
-  //   API.searchVenues(this.state.location,this.state.category)
-  //   .then((res) => {
+  //   API.searchVenues(this.state.location,this.state.category).then((res) => {
   //     this.setState({results: res.data.response.docs})
-  //     console.log('i am in result', res.data.response.venues);
+  //     console.log('sending back results', res.data.response.venues);
   //   })
   // }
 
   render() {
-     return 
+     return (
       <div>   
         <h1>Hello World</h1>
       </div>
-    
+    )
   }
 
 }
