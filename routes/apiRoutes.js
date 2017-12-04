@@ -1,4 +1,6 @@
 const axios = require("axios");
+
+//console.log(db2);
 const venuesController = require("../controllers/venuesController");
 
 const router = require("express").Router();
@@ -52,17 +54,26 @@ router.get("/similar", (req, res) => {
 });
 
  router.get("/users/:user_id", (req, res) => {
-
-    venuesController.findById(req, res);
-
-//   // console.log("ok");
-//   .get(console.log("ok"))
-//   // .get(venuesController.findById)
-//   // .post(venuesController.create)
-//   // .put(venuesController.update)
-//   //.delete(venuesController.remove);
+    
+    venuesController.findById(req,res);
+    
 });
 
+router.post("/users", (req, res) => {
+    //var db2 = require("../models");
+    //var db2= require("C:\\Users\\mg\\local-project3\\models");
+    venuesController.create(req,res);
+    //res.send({"_id":"mona123"});
+
+});
+
+router.post("/users/:user_id", (req, res) => {
+    //var db2 = require("../models");
+    //var db2= require("C:\\Users\\mg\\local-project3\\models");
+    venuesController.update(req,res);
+    //res.send({"_id":"mona123"});
+
+});
 
 router.post("/users/:user_id/venues/:id", (req, res) => {
    //
