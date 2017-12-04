@@ -4,6 +4,8 @@ import { DropdownButton,MenuItem, ButtonGroup, Button, ButtonToolbar} from 'reac
 import API from '../../utils/API';
 import SearchResults from '../../components/SearchResults';
 
+
+
 class Main extends Component {
   state = {
     location: "",
@@ -33,6 +35,7 @@ class Main extends Component {
               <ButtonGroup>
                 <Button>Sign In</Button>
                 <Button>Login</Button>
+
               </ButtonGroup>
           </ButtonToolbar>
         </div>

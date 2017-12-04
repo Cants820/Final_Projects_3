@@ -8,11 +8,13 @@ import AddModal from "./components/AddModal";
 import Search from "./components/Search";
 // import Search from "./components/Search"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import BurgerNav from'./components/BurgerNav';
 
 class App extends Component { 
   render() {
     return (
        <div>
+          <BurgerNav />
           <Main />
           <Router>
               <Switch>
