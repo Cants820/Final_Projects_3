@@ -1,6 +1,6 @@
 import React from "react";
 import "./Jumbotron.css";
-import { DropdownButton,MenuItem, ButtonGroup, Button, ButtonToolbar} from 'react-bootstrap';
+import { DropdownButton,MenuItem, ButtonGroup, Button, ButtonToolbar } from 'react-bootstrap';
 
 const Jumbotron = () => (
 

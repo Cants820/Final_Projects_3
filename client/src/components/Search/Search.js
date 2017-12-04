@@ -69,9 +69,8 @@ class Search extends Component {
 
               <input className="btn btn-primary"
                 onClick={this.handleFormSubmit}
-                type="submit">
-                Submit
-              </input>
+                type="submit" />
+            
             </form>
           </div>
         </div>

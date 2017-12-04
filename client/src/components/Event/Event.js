@@ -27,11 +27,11 @@ render (){
         <a href={this.state.url} target='_blank'>
           <button className='btn btn-default' href={this.state.url}>View Venue</button>
         </a>
-        {(this.state.saved) ?
+        {this.state.saved}
          
         <button className='btn btn-primary' onClick= {this.handleSaveVenue}>Save Venue</button> 
         
-        }
+        
         
       </div>
     </div>
