@@ -4,7 +4,11 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.17.1",
+=======
+    "chardet": "^0.4.2",
+>>>>>>> 311cd4e5cf939915c0f450547682f24f5e0f7d4b
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.2.0",

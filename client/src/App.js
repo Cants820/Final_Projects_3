@@ -17,7 +17,7 @@ class App extends Component {
           <Router>
               <Switch>
                 <Route exact path="/" component= {Main} />        
-                <Route exact path="/modal" component ={AddModal}/>
+                <Route exact path="/modal" component ={AddModal} />
               </Switch>
           </Router>
         </div>
