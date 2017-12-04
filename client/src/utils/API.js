@@ -10,7 +10,7 @@ export default {
   // },
 
   getVenuesId: function(param1,param2){
-  	return axios.get("/api/venuesId", { params: { "near": param1, "categoryId": param2}});
+  	return axios.get("/api/venuesId", { params: { "VENUE_ID": param1}});
   },
 
   searchVenues: function(param1,param2){
@@ -27,11 +27,11 @@ export default {
   },
   //can I pass the array of venues Ids
   getUserVenues: function(id) {
-    return axios.get("/users/:user_id/venues" + id);
+    return axios.get("/users/user_id/venues/" + id);
   },
 
   deleteUserVenue: function(id) {
-    return axios.delete("/users/:user_id/venues/:id" + id);
+    return axios.delete("/users/:user_id/venues/" + id);
   },
   // Saves a venue id to the database no need for bookData
   saveUserVenue: function() {

@@ -8,13 +8,17 @@ constructor(props) {
   this.state = props;
 }
 
+state = {
+    
+    venues:{}
+  }
 
-handleSaveVenue = event => {
-  API.saveUserVenue({
-    venueId: this.state.venueId   
-  })
+componentWillMount(){
+
+  API.getVenuesId(this.props.venueId)
+  .then((res) => {
+      this.setState({ venues: res.data.response})
 }
-
 
  
 render (){
@@ -22,21 +26,17 @@ render (){
     <div className="card">
       <div className="card-block">
         <h3 className="card-title">
-        {this.state.name}  
+        {this.state.venues.name}  
         </h3>
-        <a href={this.state.url} target='_blank'>
+        {this.state.venues.stats.checkinsCount}
+ 
+        <a href={this.state.venues.url} target='_blank'>
           <button className='btn btn-default' href={this.state.url}>View Venue</button>
-        </a>
-        {(this.state.saved) ?
-         
-        <button className='btn btn-primary' onClick= {this.handleSaveVenue}>Save Venue</button> 
-        
-        }
-        
+         </a>
       </div>
     </div>
     );
   }
 }
 
-export default Event;
+export default SavedEvent;

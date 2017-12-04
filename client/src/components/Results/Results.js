@@ -1,5 +1,5 @@
 import React from 'react';
-import Article from '../Event'
+import Event from '../Event'
 
 const Results = props =>
 
@@ -16,7 +16,7 @@ const Results = props =>
         </div>
         <div className='panel-body'>
         {props.venues.map((venue, index) =>(
-          <Article 
+          <Event 
             venueId = {venue.id}
             name = {venue.venues[index].name}
             type = {venue.categories[0].name}

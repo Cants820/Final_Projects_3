@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
-import SearchResults from '../Results'
+import Results from '../Results'
 
 
 class Search extends Component {
