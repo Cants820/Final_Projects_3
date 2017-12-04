@@ -17,9 +17,6 @@ class SearchResults extends Component {
           <a href={this.state.venue.url} target='_blank'>
           <div className='overlay'>
             <h4><b>{this.state.venue.name}</b></h4>
-            
-        
-      
             <p>{this.state.venue.popular}</p>
             <p>{this.state.venue.rating}</p>
             

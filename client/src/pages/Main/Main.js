@@ -4,8 +4,6 @@ import { DropdownButton,MenuItem, ButtonGroup, Button, ButtonToolbar} from 'reac
 import API from '../../utils/API';
 import SearchResults from '../../components/SearchResults';
 
-
-
 class Main extends Component {
   state = {
     location: "",
@@ -22,9 +20,9 @@ class Main extends Component {
     event.preventDefault();
     API.searchVenues(this.state.location,this.state.category)
     .then((res) => {
-      console.log('category',this.state.category);
-      console.log(res.data.response.docs);
-      this.setState({venue: res.data.response.docs})
+       console.log(res.data.response);
+       console.log(this.state.location, this.state.category);
+      this.setState({venue: res.data.response.venue})
     })
   }
   render() {
@@ -50,7 +48,6 @@ class Main extends Component {
               <input
                className="form-control locationTextbox" 
                placeholder="Location"
-  
                onChange={this.handleInputChange} 
                name="location"
                type="text"
@@ -59,22 +56,22 @@ class Main extends Component {
             <div>
               <label>
               Please select a category:
-                <select onChange={this.handleInputChange} name={this.state.category}>
-                    <option value="Arts & Entertainment">Arts & Entertainment</option>
-                    <option value="Historic Site">Historic Site</option>
-                    <option value="4bf58dd8d48988d17f941735">Movie Theater</option>
-                    <option value="4bf58dd8d48988d181941735">Museum</option>
-                    <option value="4bf58dd8d48988d1e5931735">Music Venue</option>
-                    <option value="4bf58dd8d48988d1f2931735">Performing Arts Venue</option>
-                    <option value="507c8c4091d498d9fc8c67a9">Public Art</option>
-                    <option value="4bf58dd8d48988d184941735">Stadium</option>
-                    <option value="4bf58dd8d48988d182941735">Theme Park</option>
-                    <option value="56aa371be4b08b9a8d573520">Tour Provider</option>
-                    <option value="4bf58dd8d48988d17b941735">Zoo</option>
-                    <option value="4d4b7105d754a06372d81259">College & University</option>
-                    <option value="4d4b7105d754a06373d81259">Event</option>
-                    <option value="4d4b7105d754a06376d81259">Nightlife Spot</option>
-                    <option value="4d4b7105d754a06377d81259">Outdoors & Recreation</option>                    
+                <select value={this.state.value} onChange={this.handleInputChange} name="category">
+                  <option value="4d4b7104d754a06370d81259">Arts & Entertainment</option>
+                  <option value="4deefb944765f83613cdba6e">Historic Site</option>
+                  <option value="4bf58dd8d48988d17f941735">Movie Theater</option>
+                  <option value="4bf58dd8d48988d181941735">Museum</option>
+                  <option value="4bf58dd8d48988d1e5931735">Music Venue</option>
+                  <option value="4bf58dd8d48988d1f2931735">Performing Arts Venue</option>
+                  <option value="507c8c4091d498d9fc8c67a9">Public Art</option>
+                  <option value="4bf58dd8d48988d184941735">Stadium</option>
+                  <option value="4bf58dd8d48988d182941735">Theme Park</option>
+                  <option value="56aa371be4b08b9a8d573520">Tour Provider</option>
+                  <option value="4bf58dd8d48988d17b941735">Zoo</option>
+                  <option value="4d4b7105d754a06372d81259">College & University</option>
+                  <option value="4d4b7105d754a06373d81259">Event</option>
+                  <option value="4d4b7105d754a06376d81259">Nightlife Spot</option>
+                  <option value="4d4b7105d754a06377d81259">Outdoors & Recreation</option>                    
                 </select>
               </label>
             </div>
