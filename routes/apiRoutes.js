@@ -14,18 +14,17 @@ V:'20171129'
 }
 
 
-router.get("/venuesId", (req, res) => {
-  axios.get("https://api.foursquare.com/v2/venues/VENUE_ID", { params: req.query })
-    .then(results => res.json(results))
-    .catch(err => res.status(422).json(err));
+router.post("/venuesId", (req, res) => {
+  console.log("apiRoutes");
+  axios.get("https://api.foursquare.com/v2/venues/VENUE_ID", { params: req.body })
+    .then(results => {
+      console.log("SINGLEVENUE"+results.data)
+      res.json(results.data)
+    //.catch(err => console.log(err));
    
+   });
+
 });
-//just for test 
-// router.get("/venues", (req, res) => {
-//   console.log('testing');
-//   res.send("hello");
-   
-// });
 
 
 router.post("/venues", (req, res) => {
@@ -36,19 +35,19 @@ router.post("/venues", (req, res) => {
       res.json(results.data.response.venues)
     }).catch(err => console.log(err));
    
-});
+})
 
-router.get("/trending", (req, res) => {
+router.post("/trending", (req, res) => {
   axios
-    .get("https://api.foursquare.com/v2/venues/trending", { auth:AUTH_TOKEN, params: req.query })
+    .get("https://api.foursquare.com/v2/venues/trending", {params: req.body})
     .then(({ data: { results } }) => res.json(results))
     .catch(err => res.status(422).json(err));
    
 });
 
-router.get("/similar", (req, res) => {
+router.post("/similar", (req, res) => {
   axios
-    .get("https://api.foursquare.com/v2/venues/VENUE_ID/similar", { auth:AUTH_TOKEN, params: req.query })
+    .get("https://api.foursquare.com/v2/venues/VENUE_ID/similar", {params: req.body})
     .then(({ data: { results } }) => res.json(results))
     .catch(err => res.status(422).json(err));
    
@@ -68,20 +67,15 @@ router.get("/similar", (req, res) => {
 
 // });
 
-router.post("/users/:user_id", (req, res) => {
-    //var db2 = require("../models");
-    //var db2= require("C:\\Users\\mg\\local-project3\\models");
-    venuesController.update(req,res);
-    //res.send({"_id":"mona123"});
-
+router.post("/uservenues", (req, res) => {
+    
+    venuesController.findAll(req,res);    
 });
 
 router.post("/savevenues", (req, res) => {
    console.log("YAAAS")
-
-   //res.status(200).json({Ret:true})
+   
    venuesController.update(req,res);
-   //step
    
 });
 

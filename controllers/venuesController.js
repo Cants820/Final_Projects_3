@@ -6,10 +6,13 @@ const db = require("../models");
 // Defining methods for the venuesController
 module.exports = {
   findAll: function(req, res) {
-    db.User.find(req.query)
-      //.sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    console.log("uservenues")
+    console.log(req.body);
+    db.User.find({_id:req.body.userId})      
+      .then(dbModel => {
+        console.log(dbModel[0].saveitems)
+        res.json(dbModel[0].saveitems)})
+     // .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
     //console.log(JSON.stringify(db.User));
@@ -39,8 +42,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.User.find({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
+    db.User.update({ _id: req.body.id },{$pull:{saveitems:req.body.saveitems}}, {new: true})
+      // .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

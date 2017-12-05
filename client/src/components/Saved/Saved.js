@@ -8,11 +8,8 @@ class Saved extends Component{
   }
 
   componentDidMount(){
-    this.loadVenues();
-  }
-
-  loadVenues = () => {
-    API.getUserVenues()
+    console.log("loadVenues")
+    API.getUserVenues("5a21c4c871868f1f9cd90959")
     .then(res => {
       console.log("result", res)
       this.setState({savedVenues: res.data})
@@ -37,8 +34,7 @@ class Saved extends Component{
                    // key = {venue._id}
                     key = {index}
                     saved = {true}
-                    id ={venue.venueId}
-                    loadVenues = {this.loadVenues}
+                    id ={venue}
                   />
                 ))) 
                 : (<h3>No Saved Venues</h3>)

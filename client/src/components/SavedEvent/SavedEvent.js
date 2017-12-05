@@ -12,10 +12,13 @@ class SavedEvent extends Component {
         venues:{}
     }
 
-    componentWillMount(){
-      API.getVenuesId(this.props.venueId)
+    componentDidMount(){
+      console.log(this.props.id)
+      API.getVenuesId(this.props.id)
         .then((res) => {
-          this.setState({ venues: res.data.response});
+          console.log("in card"+res)
+          this.setState({ venues: res.data});
+          console.log(this.state.venues)
       })
     }
 
@@ -24,14 +27,7 @@ class SavedEvent extends Component {
       return(
         <div className="card">
           <div className="card-block">
-            <h3 className="card-title">
-            {this.state.venues.name}  
-            </h3>
-            {this.state.venues.stats.checkinsCount}
-     
-            <a href={this.state.venues.url} target='_blank'>
-              <button className='btn btn-default' href={this.state.url}>View Venue</button>
-             </a>
+            YAY
           </div>
         </div>
         );
