@@ -30,8 +30,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
+    console.log("controller")
     console.log(req.body.saveitems);
-    db.User.findOneAndUpdate({ _id: req.params.user_id }, {saveitems:req.body.saveitems})
+    //db.User.findOneAndUpdate({ _id: "5a21c4c871868f1f9cd90959"}, {saveitems:req.body.saveitems})
+    db.User.findOneAndUpdate({ _id: "5a21c4c871868f1f9cd90959"}, {$addToSet : {saveitems:req.body.saveitems}}, {new : true})
+
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

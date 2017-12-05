@@ -39,9 +39,11 @@ export default {
     return axios.delete("/api/users/:user_id/venues/" + id);
   },
   // Saves a venue id to the database no need for bookData
-  saveUserVenue: function(venue) {
-    return axios.post("/api/savevenues", {near: "param1"})
+  saveUserVenue: function(venueId) {
+
+    return axios.post("/api/savevenues/" , {saveitems: venueId})
     .then(function(data){
+      console.log(data)
       return data
     });
   }
