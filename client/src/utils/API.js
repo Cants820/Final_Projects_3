@@ -1,5 +1,7 @@
 import axios from "axios";
-
+var CLIENTIDKEY='BRKWXNJL4ZQ4KSQOXFT1LWWTGSYE21SZ4SX2DI2MXY4ZJSTP';
+var CLIENTSECRETKEY='NYJLSSQSKF1ACGU1W0Q5HSI0AIJVZCRSBQLE1JXSAVZU50GW';
+var V ='20171129';
 
 
 // The getRecipes method retrieves recipes from the server
@@ -14,7 +16,10 @@ export default {
   },
 
   searchVenues: function(param1,param2){
-  	return axios.get("/api/venues", { params: { "near": param1, "categoryId": param2}});
+  	return axios.post("/api/venues", {  "near": param1, "categoryId": param2, client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V })
+    .then(function(data){
+      return data
+    });
   },
 
   searchTrending: function(param1,param2){
@@ -27,15 +32,18 @@ export default {
   },
   //can I pass the array of venues Ids
   getUserVenues: function(id) {
-    return axios.get("/users/user_id/venues/" + id);
+    return axios.get("/api/users/user_id/venues/" + id);
   },
 
   deleteUserVenue: function(id) {
-    return axios.delete("/users/:user_id/venues/" + id);
+    return axios.delete("/api/users/:user_id/venues/" + id);
   },
   // Saves a venue id to the database no need for bookData
-  saveUserVenue: function() {
-    return axios.post("/users/:user_id/venues/:id");
+  saveUserVenue: function(venue) {
+    return axios.post("/api/savevenues", {near: "param1"})
+    .then(function(data){
+      return data
+    });
   }
 
 };

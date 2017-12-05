@@ -6,7 +6,7 @@ import Results from '../Results'
 class Search extends Component {
   state = {
     location: "",
-    category: "",
+    category: "4d4b7104d754a06370d81259",
     venues: []
   }
 
@@ -21,7 +21,8 @@ class Search extends Component {
     event.preventDefault();
     API.searchVenues(this.state.location, this.state.category)
     .then((res) => {
-      this.setState({ venues: res.data.response.venues})
+      console.log(res.data)
+      this.setState({ venues: res.data})
     })
   }
 
@@ -77,9 +78,11 @@ class Search extends Component {
       </div>
 
       {this.state.venues ? ( 
+        <div>
         <Results
         venues = {this.state.venues}
         />
+        </div>
         ):(
         <h3>No Results to Display</h3>
       )}

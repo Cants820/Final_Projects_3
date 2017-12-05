@@ -18,7 +18,7 @@ const Results = props =>
         {props.venues.map((venue, index) =>(
           <Event 
             venueId = {venue.id}
-            name = {venue.venues[index].name}
+            name = {venue.name}
             type = {venue.categories[0].name}
             address = {venue.formattedAddress}
             url = {venue.url}

@@ -9,10 +9,13 @@ constructor(props) {
 }
 
 
-handleSaveVenue = event => {
-  API.saveUserVenue({
-    venueId: this.state.venueId   
-  })
+handleSaveVenue = (event)=>{
+  console.log(this.state.venueId)
+  API.saveUserVenue(this.state.venueId)
+  .then((res) => {
+    console.log("got into then")
+      console.log(res.data)
+    })
 }
 
 
