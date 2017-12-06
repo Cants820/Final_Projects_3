@@ -10,6 +10,23 @@ class Search extends Component {
     venues: []
   }
 
+  componentDidMount() {
+    this.trending();
+  }
+  componentDidUpdate() {
+    console.log("Update",this.state)
+  }
+
+  trending = () => {
+
+    API.searchTrending('San Fransisco')
+    .then((res) => {
+      console.log("response",res.data.response.venues)
+      this.setState({ venues: res.data.response.venues})
+    });
+  }
+
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -26,70 +43,65 @@ class Search extends Component {
     })
   }
 
-  render() {
-    return (
-      <div>
-      <div className="container">
-        <div className="panel panel-primary">
-          <div className="panel-heading">
-          Search For Places
-          </div>
-          <div className="panel-body">
+      render() {
+        return (
+          <div>
+          <div className="container">
             <form> 
-            <div className="form-group">
-              <label>Location</label>
-              <input className="form-control"
-                value={this.state.location}
-                onChange={this.handleInputChange}
-                name="location"
-                placeholder="Location"/>
-            </div>          
-           
-            <div className="dropdown-list">
-              <label>
-              Please select a category:
-                <select value={this.state.value} onChange={this.handleInputChange} name="category">
-                  <option value="4d4b7104d754a06370d81259">Arts & Entertainment</option>
-                  <option value="4deefb944765f83613cdba6e">Historic Site</option>
-                  <option value="4bf58dd8d48988d17f941735">Movie Theater</option>
-                  <option value="4bf58dd8d48988d181941735">Museum</option>
-                  <option value="4bf58dd8d48988d1e5931735">Music Venue</option>
-                  <option value="4bf58dd8d48988d1f2931735">Performing Arts Venue</option>
-                  <option value="507c8c4091d498d9fc8c67a9">Public Art</option>
-                  <option value="4bf58dd8d48988d184941735">Stadium</option>
-                  <option value="4bf58dd8d48988d182941735">Theme Park</option>
-                  <option value="56aa371be4b08b9a8d573520">Tour Provider</option>
-                  <option value="4bf58dd8d48988d17b941735">Zoo</option>
-                  <option value="4d4b7105d754a06372d81259">College & University</option>
-                  <option value="4d4b7105d754a06373d81259">Event</option>
-                  <option value="4d4b7105d754a06376d81259">Nightlife Spot</option>
-                  <option value="4d4b7105d754a06377d81259">Outdoors & Recreation</option>                     
-                </select>
-              </label>
-            </div>
+            <div className="row">
+                <div className="form-group">
+                  <input className="form-control"
+                    value={this.state.location}
+                    onChange={this.handleInputChange}
+                    name="location"
+                    placeholder="Location"/>
+               
+                
+                  <label>
+                  Please select a category:
+                    <select value={this.state.value} onChange={this.handleInputChange} name="category">
+                      <option value="4d4b7104d754a06370d81259">Arts & Entertainment</option>
+                      <option value="4deefb944765f83613cdba6e">Historic Site</option>
+                      <option value="4bf58dd8d48988d17f941735">Movie Theater</option>
+                      <option value="4bf58dd8d48988d181941735">Museum</option>
+                      <option value="4bf58dd8d48988d1e5931735">Music Venue</option>
+                      <option value="4bf58dd8d48988d1f2931735">Performing Arts Venue</option>
+                      <option value="507c8c4091d498d9fc8c67a9">Public Art</option>
+                      <option value="4bf58dd8d48988d184941735">Stadium</option>
+                      <option value="4bf58dd8d48988d182941735">Theme Park</option>
+                      <option value="56aa371be4b08b9a8d573520">Tour Provider</option>
+                      <option value="4bf58dd8d48988d17b941735">Zoo</option>
+                      <option value="4d4b7105d754a06372d81259">College & University</option>
+                      <option value="4d4b7105d754a06373d81259">Event</option>
+                      <option value="4d4b7105d754a06376d81259">Nightlife Spot</option>
+                      <option value="4d4b7105d754a06377d81259">Outdoors & Recreation</option>                     
+                    </select>
+                  </label>
+                
 
-              <input className="btn btn-primary"
-                onClick={this.handleFormSubmit}
-                type="submit" />
+                  <input className="btn btn-primary"
+                    onClick={this.handleFormSubmit}
+                    type="submit" />
+              </div>          
             
-            </form>
+            </div>
+                </form>
+              
+            
           </div>
-        </div>
-      </div>
 
-      {this.state.venues ? ( 
-        <div>
-        <Results
-        venues = {this.state.venues}
-        />
-        </div>
-        ):(
-        <h3>No Results to Display</h3>
-      )}
+          {this.state.venues ? ( 
+            <div>
+              <Results 
+              venues = {this.state.venues} />
+            </div>
+            ):(
+            <h3>No Results to Display</h3>
+          )}
 
-      </div>
-    );
-  }
-}
+          </div>
+        );
+      }
+    }
 
 export default Search;

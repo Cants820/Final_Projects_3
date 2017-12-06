@@ -1,11 +1,13 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import './header.css';
+
 
 const Header = () => 
 <div className="container">
   <nav className="navbar navbar-inverse navbar-top">
     <div className="container-fluid">
-        <Link className="navbar-brand" to='#'>eYellow</Link>
+        <Link className="navbar-brand" to='#'>LocaPedia</Link>
         <ul className="nav navbar-nav navbar-right">
           <li className={window.location.pathname=== '/search' ? 'active' : ''}>
             <Link to='/search'>Search</Link>
@@ -20,12 +22,14 @@ const Header = () =>
     </div>
   </nav>
 
-  <div>
-    <div className="jumbotron">
-    <h1>eYellow</h1> 
-    <p>Search for any thing you want</p> 
+  <div class="video-background">
+    <div class="video-foreground">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ppRxfuX5Jxw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=gpPMNpMFTqU" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
+
+   
+  
 
 </div>;
 

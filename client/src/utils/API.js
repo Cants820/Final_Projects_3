@@ -1,10 +1,10 @@
 import axios from "axios";
 //var CLIENTIDKEY='BRKWXNJL4ZQ4KSQOXFT1LWWTGSYE21SZ4SX2DI2MXY4ZJSTP';
 //var CLIENTSECRETKEY='NYJLSSQSKF1ACGU1W0Q5HSI0AIJVZCRSBQLE1JXSAVZU50GW';
-var CLIENTIDKEY ='RYH0B5SI4MPYO5CGE01PVILQICU3SC0WN5VIZ0REYHTGVBGH';
-var CLIENTSECRETKEY='JN3IDX441GKEQZO4IHSU4YP4QEOEQKYE4VD2UP03V0PPJKR3';
+var CLIENTIDKEY ='BRKWXNJL4ZQ4KSQOXFT1LWWTGSYE21SZ4SX2DI2MXY4ZJSTP';
+var CLIENTSECRETKEY='NYJLSSQSKF1ACGU1W0Q5HSI0AIJVZCRSBQLE1JXSAVZU50GW';
 
-var V ='20171129';
+var V = '20171010';
 
 
 // The getRecipes method retrieves recipes from the server
@@ -24,15 +24,24 @@ export default {
   },
 
   searchVenues: function(param1,param2){
-  	return axios.post("/api/venues", {  "near": param1, "categoryId": param2, client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V })
+  	return axios.post("/api/venues", {  "near": param1, "categoryId": param2, client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V, "limit": 8})
     .then(function(data){
       return data
     });
   },
 
-  searchTrending: function(param1,param2){
-  	return axios.get("/api/trending", { params: { "near": param1, "categoryId": param2}});
+  searchTrending: function(param1){
+      return  axios.get("https://api.foursquare.com/v2/venues/trending",{params:{near: param1,radius:2000, limit:10 ,client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V }})
+    .then((results) => {
+      return results
+    });
   },
+  // searchTrending: function(param1,param2){
+  // 	return axios.get("https://api.foursquare.com/v2/venues/trending" + param1 , {params:{client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V }})
+  //   .then(function(data){
+  //     return data
+  //   });
+  // },
   
   // pass the current venues_id
   searchSimilarVenues: function(param1,param2){

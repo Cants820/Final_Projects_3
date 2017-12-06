@@ -1,43 +1,41 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
+import "./Event.css";
+import { Image } from "react-bootstrap";
 
 class Event extends Component {
 
-constructor(props) {
-  super(props);
-  this.state = props;
-}
+  constructor(props) {
+    super(props);
+    this.state = {
+       ...props
+    }
+  }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    this.setState({...nextProps}) 
+  }
 
-handleSaveVenue = (event)=>{
-  console.log(this.state.venueId)
-  API.saveUserVenue(this.state.venueId)
-  .then((res) => {
-    console.log("got into then")
-      console.log(res.data)
-    })
-}
+  handleSaveVenue = (event)=>{
+    console.log(this.state.venueId)
+    API.saveUserVenue(this.state.venueId)
+    .then((res) => {
+      console.log("got into then")
+        console.log(res.data)
+      })
+  }
 
-
- 
 render (){
   return(
-    <div className="card">
-      <div className="card-block">
-        <h3 className="card-title">
-        {this.state.name}  
-        </h3>
-        <a href={this.state.url} target='_blank'>
-          <button className='btn btn-default' href={this.state.url}>View Venue</button>
-        </a>
-        {this.state.saved}
-         
-        <button className='btn btn-primary' onClick= {this.handleSaveVenue}>Save Venue</button> 
-        
-        
-        
+      <div className="card">
+        <Image src={this.state.photo} />
+          <a href={this.state.url} target="_blank">
+            <div className="overlay">
+              <h1> {this.state.name}  </h1>
       </div>
-    </div>
+          </a>
+      </div>
     );
   }
 }
