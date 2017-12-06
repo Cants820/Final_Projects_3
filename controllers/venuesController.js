@@ -17,6 +17,8 @@ module.exports = {
   findById: function(req, res) {
     //console.log(JSON.stringify(db.User));
    // console.log("456");
+
+   //FIXME: remove hard coded id, and replace with id from request.session
     db.User.find({_id:"5a21c07108895432883b1250"})
       .then(dbModel => {
         console.log(dbModel)
@@ -36,10 +38,11 @@ module.exports = {
     console.log("controller")
     console.log(req.body.saveitems);
     //db.User.findOneAndUpdate({ _id: "5a21c4c871868f1f9cd90959"}, {saveitems:req.body.saveitems})
-    db.User.findOneAndUpdate({ _id: "5a21c4c871868f1f9cd90959"}, {$addToSet : {saveitems:req.body.saveitems}}, {new : true})
+    console.log("req", req)
+    // db.User.findOneAndUpdate({ _id: req.session.user.googleId}, {$addToSet : {saveitems:req.body.saveitems}}, {new : true})
 
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      // .then(dbModel => res.json(dbModel))
+      // .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
     db.User.update({ _id: req.body.id },{$pull:{saveitems:req.body.saveitems}}, {new: true})
