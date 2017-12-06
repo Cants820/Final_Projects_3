@@ -13,8 +13,8 @@ const Header = () =>
           <li className={window.location.pathname === '/saved' ? 'active' : ''}>
             <Link to='/saved'>Saved Venues</Link>
           </li>
-          <li className={window.location.pathname === '/suggestions' ? 'active' : ''}>
-            <Link to='/suggestions'>Recommended Venues</Link>
+          <li className={window.location.pathname === '/recommendation' ? 'active' : ''}>
+            <Link to='/recommendation'>Recommended Venues</Link>
           </li>
         </ul>
     </div>
