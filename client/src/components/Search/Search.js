@@ -4,11 +4,20 @@ import Results from '../Results'
 
 
 class Search extends Component {
-  state = {
+  constructor(props) {
+    super(props)
+    this.state = {
     location: "",
     category: "4d4b7104d754a06370d81259",
     venues: []
+    }
   }
+
+  // componentDidMount() {
+  //   fetch('http://localhost:3001/checksession')
+  //     .then(data => data.json())
+  //     .then(result => console.log('result from check session :: \n', result))
+  // }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -16,6 +25,7 @@ class Search extends Component {
       [name]: value
     });
   }
+
 
   handleFormSubmit = (event) => {
     event.preventDefault();

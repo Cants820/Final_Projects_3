@@ -12,14 +12,20 @@ router.get("/google", passport.authenticate('google',{
 
 router.get('/google/redirect', passport.authenticate('google',{
   //successRedirect : '/user/4/events',
-  successRedirect : '/auth/success',
+  // successRedirect : 'http://localhost:3000/',
+  // successRedirect : '/success',
   failureRedirect : '/google'
-}));
-  
-router.get('/success', (request, response) => {
-  console.log('USER ::', request.user)
-  console.log(request.session)
-  response.send('Success!')
-})
+  }),
+  (request, response) => {
+    console.log('request-user :: ', request.user, '\n')
+    request.session.user = request.user
+    request.session.save()
+    console.log('SESSION :: ', request.session, '\n')
+    // response.send('Done.')
+
+   response.redirect('http://localhost:3000/')
+  }
+);
+
 // });
 module.exports = router;

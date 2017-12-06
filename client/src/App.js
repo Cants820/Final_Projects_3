@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
+import Jumbotron from "./components/Jumbotron";
 import Search from "./components/Search";
 import Saved from "./components/Saved";
 
@@ -8,7 +8,7 @@ const App = () =>
   
   <Router>
     <div>
-    <Header />
+    <Jumbotron />
       <Switch>
         <Route exact path="/" component={Search} />
         <Route exact path="/search" component={Search} />
