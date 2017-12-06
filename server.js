@@ -62,6 +62,7 @@ app.use('/success', (req, res, next) => {
   res.redirect('http://localhost:3001/')
 })
 
+
 //Return the session value when the client checks
 app.get('/checksession', function(req, res){
   console.log(' Checking session for user/...')
@@ -73,16 +74,14 @@ app.get('/checksession', function(req, res){
   }
 });
 
-
-
 app.use('/auth',authRoutes);
 
 // Send every request to the React app
 // Define any API routes before this runs
 
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
