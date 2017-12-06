@@ -1,7 +1,11 @@
 import axios from "axios";
-var CLIENTIDKEY='BRKWXNJL4ZQ4KSQOXFT1LWWTGSYE21SZ4SX2DI2MXY4ZJSTP';
+
+//var CLIENTIDKEY='BRKWXNJL4ZQ4KSQOXFT1LWWTGSYE21SZ4SX2DI2MXY4ZJSTP';
+//var CLIENTSECRETKEY='NYJLSSQSKF1ACGU1W0Q5HSI0AIJVZCRSBQLE1JXSAVZU50GW';
+var CLIENTIDKEY ='BRKWXNJL4ZQ4KSQOXFT1LWWTGSYE21SZ4SX2DI2MXY4ZJSTP';
 var CLIENTSECRETKEY='NYJLSSQSKF1ACGU1W0Q5HSI0AIJVZCRSBQLE1JXSAVZU50GW';
-var V ='20171129';
+
+var V = '20171010';
 
 
 // The getRecipes method retrieves recipes from the server
@@ -13,26 +17,36 @@ export default {
 
   getVenuesId: function(param1,param2){
     console.log("p1"+param1)
-  	return axios.post("/api/venuesId", {"VENUE_ID": param1, client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V })
+    //api/venuesId=
+  	return axios.get("https://api.foursquare.com/v2/venues/"+param1 , {params:{client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V }})
     .then(function(data){
       return data
     });
   },
 
   searchVenues: function(param1,param2){
-  	return axios.post("/api/venues", {  "near": param1, "categoryId": param2, client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V })
+  	return axios.post("/api/venues", {  "near": param1, "categoryId": param2, client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V, "limit": 8})
     .then(function(data){
       return data
     });
   },
 
-  searchTrending: function(param1,param2){
-  	return axios.get("/api/trending", { params: { "near": param1, "categoryId": param2}});
+  searchTrending: function(param1){
+      return  axios.get("https://api.foursquare.com/v2/venues/trending",{params:{near: param1,radius:2000, limit:10 ,client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V }})
+    .then((results) => {
+      return results
+    });
   },
+  // searchTrending: function(param1,param2){
+  // 	return axios.get("https://api.foursquare.com/v2/venues/trending" + param1 , {params:{client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V }})
+  //   .then(function(data){
+  //     return data
+  //   });
+  // },
   
   // pass the current venues_id
   searchSimilarVenues: function(param1,param2){
-  	return axios.get("/api/similar", { params: { "near": param1, "categoryId": param2}});
+  	return axios.get("https://api.foursquare.com/v2/venues/"+param1+"/similar/", { params:{client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V}});
   },
   //can I pass the array of venues Ids
   getUserVenues: function(id) {

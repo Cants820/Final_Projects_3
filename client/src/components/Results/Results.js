@@ -3,18 +3,8 @@ import Event from '../Event'
 
 const Results = props =>
 
-<div className='container'>
-   <div className='row'>
-    <div className='col-lg-12'>
-      <div className='panel panel-primary'>
-        <div className='panel-heading'>
-          <h3 className='panel-title'>
-            <strong>
-              Results
-            </strong>
-          </h3>
-        </div>
-        <div className='panel-body'>
+    <div className= 'container'>
+        <div className='row'>
         {props.venues.map((venue, index) =>(
           <Event 
             venueId = {venue.id}
@@ -27,13 +17,11 @@ const Results = props =>
             busy = {venue.hereNow.count}
             key = {index}
             saved = {false}
+            photo = "https://farm3.staticflickr.com/2610/3687796240_83de9ce39a_n.jpg"
           />
           ))
         }
         </div>
-      </div>
     </div>
-  </div>
-</div>
 
 export default Results;
