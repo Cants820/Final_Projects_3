@@ -62,6 +62,7 @@ app.use('/success', (req, res, next) => {
   res.redirect('http://localhost:3001/')
 })
 
+
 //Return the session value when the client checks
 app.get('/checksession', function(req, res){
   console.log(' Checking session for user/...')
@@ -72,8 +73,6 @@ app.get('/checksession', function(req, res){
     res.json(false);
   }
 });
-
-
 
 app.use('/auth',authRoutes);
 
