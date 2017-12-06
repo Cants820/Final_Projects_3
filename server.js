@@ -9,6 +9,7 @@ const session = require ("express-session");
 const cors = require("cors");
 var passport = require('./config/passport-setup');
 const MongoStore = require('connect-mongo')(session)
+const cookieSession = require('cookie-session');
 const cookieParser = require("cookie-parser");
 
 // Serve up static assets
@@ -39,11 +40,15 @@ mongoose.connect(
   }
 );
 app.use(cookieParser())
-app.use(session({ 
-  secret: 'keyboard cat',
-  resave: true, 
-  saveUninitialized:true,
-  store: new MongoStore({mongooseConnection: mongoose.connection}),
+
+app.use(cookieSession({ 
+  name: 'session',
+  keys: ['keyboard cat'],
+  maxAge: 24*60*60*1000
+  // secret: 'keyboard cat',
+  // resave: true, 
+  // saveUninitialized:true,
+  // store: new MongoStore({mongooseConnection: mongoose.connection}),
   })); 
   // session secret
 // passportSetup(passport);
@@ -54,14 +59,18 @@ app.use('/success', (req, res, next) => {
   console.log('SUCCESS session :: ', req.session)
   req.session.save()
   // res.send('success')
-  res.redirect('http://localhost:3000/')
+  res.redirect('http://localhost:3001/')
 })
 
 //Return the session value when the client checks
 app.get('/checksession', function(req, res){
   console.log(' Checking session for user/...')
   console.log('request session   inside checksession route :: \n', req.session)
-  res.json({session: req.session})
+  if (req.session.passport){
+    res.json(req.session.passport.user)
+  }else{
+    res.json(false);
+  }
 });
 
 

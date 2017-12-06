@@ -23,7 +23,7 @@ router.get('/google/redirect', passport.authenticate('google',{
     console.log('SESSION :: ', request.session, '\n')
     // response.send('Done.')
 
-   response.redirect('http://localhost:3000/')
+   response.redirect('http://localhost:3001/')
   }
 );
 

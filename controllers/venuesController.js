@@ -17,6 +17,8 @@ module.exports = {
   findById: function(req, res) {
     //console.log(JSON.stringify(db.User));
    // console.log("456");
+
+   //FIXME: remove hard coded id, and replace with id from request.session
     db.User.find({_id:"5a21c07108895432883b1250"})
       .then(dbModel => {
         console.log(dbModel)
