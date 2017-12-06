@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
-    "caniuse-lite": "^1.0.30000778",
+    "caniuse-lite": "^1.0.30000780",
     "chardet": "^0.4.2",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.5",

@@ -1277,9 +1277,9 @@ caniuse-lite@^1.0.30000697, caniuse-lite@^1.0.30000770:
   version "1.0.30000772"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000772.tgz#78129622cabfed7af1ff38b64ab680a6a0865420"
 
-caniuse-lite@^1.0.30000778:
-  version "1.0.30000778"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000778.tgz#f1e7cb8b13b1f6744402291d75f0bcd4c3160369"
+caniuse-lite@^1.0.30000780:
+  version "1.0.30000780"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000780.tgz#1f9095f2efd4940e0ba6c5992ab7a9b64cc35ba4"
 
 capture-stack-trace@^1.0.0:
   version "1.0.0"
