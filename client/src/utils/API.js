@@ -23,6 +23,27 @@ export default {
     });
   },
 
+  getVenuesPic: function(param1){
+
+   //api/venuesId=
+    return axios.get("https://api.foursquare.com/v2/venues/" + param1 + "/photos", {params:{client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V, limit: '1' }})
+    .then(function(data){
+      //console.log("I am the pic", data.data.response.photos.items[0])
+      let picUrl = data.data.response.photos.items[0]
+      let prefix = picUrl.prefix + "200x250"
+      let suffix = picUrl.suffix
+      // let size = "200x250"
+      let photoUrl = prefix + suffix
+
+     // return axios.get(prefix + "200x200" + suffix)
+      //   .then(function(photo) {
+      //     console.log(photo)
+      //   })
+
+     return photoUrl
+    });
+  },
+
   searchVenues: function(param1,param2){
   	return axios.post("/api/venues", {  "near": param1, "categoryId": param2, client_id: CLIENTIDKEY, client_secret: CLIENTSECRETKEY, v: V, "limit": 8})
     .then(function(data){

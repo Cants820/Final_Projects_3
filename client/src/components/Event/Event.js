@@ -11,6 +11,18 @@ class Event extends Component {
        ...props
     }
   }
+  
+  state = {
+  picUrl: ""
+  }
+
+  componentDidMount() {
+    API.getVenuesPic(this.props.venueId).then((data) => {
+      this.setState({picUrl:data})
+    })
+  }
+
+
 
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
@@ -29,10 +41,10 @@ class Event extends Component {
 render (){
   return(
       <div className="card">
-        <Image src={this.state.photo} />
+              {this.state.picUrl ? (<img src={this.state.picUrl}></img>):(<div></div>)}
           <a href={this.state.url} target="_blank">
             <div className="overlay">
-              <h1> {this.state.name}  </h1>
+              <h1> {this.state.name} </h1>
       </div>
           </a>
       </div>

@@ -49,14 +49,16 @@ class Search extends Component {
           <div className="container">
             <form> 
             <div className="row">
-                <div className="form-group">
+              <div class="col-md-6">  
+                
                   <input className="form-control"
                     value={this.state.location}
                     onChange={this.handleInputChange}
                     name="location"
                     placeholder="Location"/>
-               
+              </div>
                 
+                <div className="col-md-6">
                   <label>
                   Please select a category:
                     <select value={this.state.value} onChange={this.handleInputChange} name="category">
@@ -82,9 +84,10 @@ class Search extends Component {
                   <input className="btn btn-primary"
                     onClick={this.handleFormSubmit}
                     type="submit" />
+                  </div>
               </div>          
             
-            </div>
+              
                 </form>
               
             

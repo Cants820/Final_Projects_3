@@ -32,3 +32,22 @@
 @media all and (max-width: 500px) {
 .vid-info .acronym { display: none; }
 }
+
+.header {
+  
+  opacity: .6;
+  color:white;
+  font-size: 16pt;
+  font-family: 'Roboto Slab', serif;
+}
+
+body {
+
+  font-family: 'Roboto Slab', serif;
+}
+
+
+label { 
+  font-size: 12pt;
+  padding-right: 5px;
+}

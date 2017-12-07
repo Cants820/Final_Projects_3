@@ -5,11 +5,11 @@ import './header.css';
 
 const Header = () => 
 <div className="container">
-  <nav className="navbar navbar-inverse navbar-top">
+  <nav className="navbar navbar-inverse navbar-top header">
     <div className="container-fluid">
-        <Link className="navbar-brand" to='#'>LocaPedia</Link>
+        <Link className="navbar-brand header" to='#'>LocaPedia</Link>
         <ul className="nav navbar-nav navbar-right">
-          <li className={window.location.pathname=== '/search' ? 'active' : ''}>
+          <li className= {window.location.pathname=== '/search' ? 'active' : ''}>
             <Link to='/search'>Search</Link>
           </li>
           <li className={window.location.pathname === '/saved' ? 'active' : ''}>
@@ -27,9 +27,6 @@ const Header = () =>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/ppRxfuX5Jxw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=gpPMNpMFTqU" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
-
-   
-  
 
 </div>;
 

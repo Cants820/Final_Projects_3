@@ -17,7 +17,6 @@ const Results = props =>
             busy = {venue.hereNow.count}
             key = {index}
             saved = {false}
-            photo = "https://farm3.staticflickr.com/2610/3687796240_83de9ce39a_n.jpg"
           />
           ))
         }
