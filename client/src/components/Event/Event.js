@@ -18,6 +18,14 @@ handleSaveVenue = (event)=>{
     })
 }
 
+handleGetPhoto = (event)=> {
+  console.log(this.state.venueId)
+  API.getVenuesPic(this.state.venueId)
+    .then((res) =>{
+      console.log("I am res", res)
+    })
+}
+
 
  
 render (){
@@ -32,7 +40,8 @@ render (){
         </a>
         {this.state.saved}
          
-        <button className='btn btn-primary' onClick= {this.handleSaveVenue}>Save Venue</button> 
+        <button className='btn btn-primary' onClick= {this.handleSaveVenue}>Save Venue</button>
+        <button className='btn btn-info' onClick={this.handleGetPhoto}>I am save button</button> 
         
         
         
