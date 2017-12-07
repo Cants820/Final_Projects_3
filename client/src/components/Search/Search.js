@@ -1,13 +1,30 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
-import Results from '../Results'
+import Results from '../Results';
+import axios from 'axios';
 
 
 class Search extends Component {
-  state = {
+  constructor(props) {
+    super(props)
+    this.state = {
+      userId: "",
     location: "",
     category: "4d4b7104d754a06370d81259",
     venues: []
+    }
+  }
+
+  componentDidUpdate(){
+    console.log(this.state)
+  }
+//only works locally  - fix
+  componentWillMount() {
+    axios.get('http://localhost:3001/checksession')
+      // .then(data => data.json())
+      .then(result => {
+        this.setState({ userId: result })
+        console.log('result from check session :: \n', result)})
   }
 
   componentDidMount() {
@@ -33,6 +50,7 @@ class Search extends Component {
       [name]: value
     });
   }
+
 
   handleFormSubmit = (event) => {
     event.preventDefault();
