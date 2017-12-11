@@ -34,11 +34,16 @@ app.use("/api", apiRoutes);
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/userVenues",
+  process.env.MONGODB_URI || "mongodb://localhost:27017/userVenues",
   {
     useMongoClient: true
   }
 );
+
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 app.use(cookieParser())
 
 app.use(cookieSession({ 
@@ -59,9 +64,8 @@ app.use('/success', (req, res, next) => {
   console.log('SUCCESS session :: ', req.session)
   req.session.save()
   // res.send('success')
-  res.redirect('http://localhost:3001/')
+  res.redirect('http://localhost:3000/')
 })
-
 
 //Return the session value when the client checks
 app.get('/checksession', function(req, res){
@@ -74,10 +78,9 @@ app.get('/checksession', function(req, res){
   }
 });
 
-app.use('/auth',authRoutes);
 
-// Send every request to the React app
-// Define any API routes before this runs
+
+app.use('/auth',authRoutes);
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

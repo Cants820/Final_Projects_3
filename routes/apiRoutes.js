@@ -89,10 +89,4 @@ router.delete("/users/:user_id/venues/:id", (req, res) => {
 });
 
 
-// router.route("/users/:user_id/venues")
-//   .get(venuesController.findAll)
-//   //.get(venuesController.findById)
-//   //.put(venuesController.update)
-//   .delete(venuesController.remove);
-
 module.exports = router;

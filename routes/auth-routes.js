@@ -23,9 +23,8 @@ router.get('/google/redirect', passport.authenticate('google',{
     console.log('SESSION :: ', request.session, '\n')
     // response.send('Done.')
 
-   response.redirect('http://localhost:3001/')
+   response.redirect('http://localhost:3000/')
   }
 );
-
 // });
 module.exports = router;

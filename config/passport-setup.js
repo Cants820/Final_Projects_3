@@ -44,45 +44,8 @@ passport.deserializeUser(function(id, done) {
       done(null, user)
 
     })
-  // console.log('deserialize :: ', id)
-  // User.findOne({googleId: '110609739618014881284'})
-  //   .then((error, user) => {
-  //     console.log('USER in deserialize :', user)
-  //       done(null, user)
-  // })
+
 }) 
-      // new User({
-      //   username: profile.username,
-      //   googleId : profile.id
-      // }).save()
-        // .then((newUser)=>{
-      //   console.log("new User created" + newUser);
-      // })
-      // })
-      // 
+
 
 module.exports = passport
-
-
-    // process.nextTick(function(){
-    //   console.log(profile.id)
-    //   User.find({name: profile.displayName}).then(function(queryUser){
-    //     if(queryUser){
-    //         console.log('queryUser: ', queryUser);
-    //       // return done(null,queryUser);
-    //     } else {
-    //       User.create({
-    //         name: profile.displayName,
-    //         // googleID : profile.id
-    //       }).then(function(newUser){
-    //           console.log('newUser: ', newUser);
-    //         return done(null,newUser);
-    //       })
-    //     }
-
-    //   })
-    // })
-
-
-     
-

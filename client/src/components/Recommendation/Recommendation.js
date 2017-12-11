@@ -9,7 +9,7 @@ class Recommendation extends Component{
 
   componentDidMount(){
     console.log("loadVenues")
-    API.getUserVenues("5a21c4c871868f1f9cd90959")
+    API.getUserVenues("111466030326545450170")
     .then(res => {
       console.log("result", res)
       this.setState({recommendations: res.data})
@@ -19,27 +19,26 @@ class Recommendation extends Component{
 
   render() {
     return(
-      <div>
-        <div className="container">
-          <div className="panel panel-primary">
-            <div className="panel-heading">
-              Recommendations
-            </div>
-            <div className="panel-body">
-              {
-                this.state.recommendations ? 
+     <div className="container">
+      <h1 className='rec-header'>Recommendations</h1>
+       <div className="card rec-content">
+          <div className="card-header">
+            
+         </div>
+          <div className="card-body">
+            {
+                this.state.recommendations ?
                 (this.state.recommendations.map ((venue,index) => (
-                  <RecEvent 
-                   
+                  <RecEvent
+                  
                    // key = {venue._id}
                     key = {index}
                     saved = {false}
                     id ={venue}
                   />
-                ))) 
+                )))
                 : (<h3>No recommendation found</h3>)
               }
-            </div>
           </div>
         </div>
       </div>

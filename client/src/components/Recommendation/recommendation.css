@@ -1,0 +1,11 @@
+.rec-header {
+	font-size:32pt;
+	color: white;
+	opacity:.6;
+}
+
+.rec-content {
+	background-color:#FFFCCB;
+	opacity:.8;
+	width:100%;
+}

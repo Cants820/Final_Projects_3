@@ -1,25 +1,19 @@
 const db = require("../models"); 
-//console.log(db.User);
-//console.log("123");
-//const mongoose = require("mongoose");
 
-// Defining methods for the venuesController
 module.exports = {
   findAll: function(req, res) {
     console.log("uservenues")
     console.log(req.body);
-    db.User.find({_id:req.body.userId})      
+    db.User.find({googleId:req.body.googleId})      
       .then(dbModel => {
-        console.log(dbModel[0].saveitems)
+        console.log(dbModel)
         res.json(dbModel[0].saveitems)})
      // .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
     //console.log(JSON.stringify(db.User));
    // console.log("456");
-
-   //FIXME: remove hard coded id, and replace with id from request.session
-    db.User.find({_id:"5a21c07108895432883b1250"})
+    db.User.findOne({googleId:"111466030326545450170"})
       .then(dbModel => {
         console.log(dbModel)
         res.json(dbModel)
@@ -38,11 +32,10 @@ module.exports = {
     console.log("controller")
     console.log(req.body.saveitems);
     //db.User.findOneAndUpdate({ _id: "5a21c4c871868f1f9cd90959"}, {saveitems:req.body.saveitems})
-    console.log("req", req)
-    // db.User.findOneAndUpdate({ _id: req.session.user.googleId}, {$addToSet : {saveitems:req.body.saveitems}}, {new : true})
+    db.User.findOneAndUpdate({googleId:"111466030326545450170"}, {$addToSet : {saveitems:req.body.saveitems}}, {new : true})
 
-      // .then(dbModel => res.json(dbModel))
-      // .catch(err => res.status(422).json(err));
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
     db.User.update({ _id: req.body.id },{$pull:{saveitems:req.body.saveitems}}, {new: true})

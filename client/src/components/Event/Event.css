@@ -1,13 +1,13 @@
 .card {
     
-    display:inline-block;
+   display:inline-block;
     position: relative;
     padding: 5px;
 }
 
 .card:hover .overlay {
   height:80%;
-  opacity: .7;
+  opacity: .8;
   background-color: grey;
   color:black;
 }
@@ -15,14 +15,18 @@
 .overlay {
   padding: 5px;
   position: absolute;
+  color:white;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #008CBA;
+  background-color: #FFFCCB ;
+  opacity: .8;
   overflow: hidden;
   width: 100%;
   height: 0;
   transition: .5s ease;
   font-size: 1em;
 }
-
+.margin-top {
+  margin-top: 5px;
+}

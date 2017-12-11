@@ -1,0 +1,11 @@
+.card-content{
+  background-color: #FFFCCB ;
+  background-image:url('logo.png');
+  opacity: .8;
+  width:25%;
+}
+
+.save-header {
+  font-size:16pt;
+}
+

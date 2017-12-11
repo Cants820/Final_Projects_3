@@ -1,6 +1,6 @@
 import React from 'react';
 import Event from '../Event'
-
+import SavedEvent from '../SavedEvent';
 const Results = props =>
 
     <div className= 'container'>
@@ -18,6 +18,7 @@ const Results = props =>
             key = {index}
             saved = {false}
           />
+          
           ))
         }
         </div>

@@ -1,11 +1,21 @@
 import axios from "axios";
 
-//var CLIENTIDKEY='BRKWXNJL4ZQ4KSQOXFT1LWWTGSYE21SZ4SX2DI2MXY4ZJSTP';
-//var CLIENTSECRETKEY='NYJLSSQSKF1ACGU1W0Q5HSI0AIJVZCRSBQLE1JXSAVZU50GW';
-var CLIENTIDKEY ='BRKWXNJL4ZQ4KSQOXFT1LWWTGSYE21SZ4SX2DI2MXY4ZJSTP';
-var CLIENTSECRETKEY='NYJLSSQSKF1ACGU1W0Q5HSI0AIJVZCRSBQLE1JXSAVZU50GW';
+// var CLIENTIDKEY='IJZTCGP1CODLRRORCAUOBFJC0IL2UXOWCAEYIQJENFJSHGX1';
+// var CLIENTSECRETKEY='HPTK5IE3INWMX3UCOIGLSOHXLPXDTVZNUNZQNNNE15R4HJFY';
 
-var V = '20171010';
+//Fawaz
+var CLIENTIDKEY='CEGQALQDZYFZJO04IK5IE1G5HMED5EPPHRKA5MPTBAV53UHV';
+var CLIENTSECRETKEY='XFX52BTLE0XLPF53ISBLGB25NC34PQFE5FCLQIUARLKNS3WN';
+
+
+// Mahtab Api Key
+// var CLIENTIDKEY ='RYH0B5SI4MPYO5CGE01PVILQICU3SC0WN5VIZ0REYHTGVBGH';
+// var CLIENTSECRETKEY='JN3IDX441GKEQZO4IHSU4YP4QEOEQKYE4VD2UP03V0PPJKR3';
+// // joseph Api Key
+// var CLIENTIDKEY = 'RINDKD24WWTRIWZ4TIGJJ214VET2CURTZ45HWRMUUXEL0SAO';
+// var CLIENTSECRETKEY='SH0ZZEUNB3YVNOGHPFN5S1X55TKER1ETZ2R0R5RR1ZM2PQXY';
+
+var V ='20171116';
 
 
 // The getRecipes method retrieves recipes from the server
@@ -37,9 +47,9 @@ export default {
       let photoUrl = prefix + suffix
 
      // return axios.get(prefix + "200x200" + suffix)
-      //   .then(function(photo) {
-      //     console.log(photo)
-      //   })
+     //    .then(function(photo) {
+     //      console.log(photo)
+     //    })
 
      return photoUrl
     });
@@ -72,7 +82,7 @@ export default {
   //can I pass the array of venues Ids
   getUserVenues: function(id) {
     console.log("IN")
-    return axios.post("/api/uservenues/", {userId:id})
+    return axios.post("/api/uservenues/", {googleId:id})
     .then(function(data){
       console.log("APIJS"+data)
       return data

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
+import './saved-event.css';
+
+
 
 class SavedEvent extends Component {
 
@@ -26,21 +29,20 @@ class SavedEvent extends Component {
  
     render (){
       return(
-        <div className="card">
-          <div className="card-block">
-            {this.state.venues ?  (
-              <div>
-              <p>{this.state.venues.name}</p>
-              <p>{this.state.venues.hereNow.count}</p>
-              
-              </div>
-              ):
-              
-            (<p> message </p>)             
-            }
+        
+          <div class="card-content">
+              {this.state.venues ? (
+                <div>
+                  <h4 class="card-title">{this.state.venues.name}</h4>
 
+                  <p class="card-text">{this.state.venues.hereNow.count}</p>
+                  <a href={this.state.url} class="btn btn-primary">View</a>
+                </div>
+            ) :
+            (<p> message </p>)
+       }
           </div>
-        </div>
+  
         );
       }
 }

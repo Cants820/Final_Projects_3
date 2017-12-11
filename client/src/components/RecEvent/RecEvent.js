@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
-
+import './rec-event.css';
 class RecEvent extends Component {
 
     constructor(props) {
@@ -26,7 +26,7 @@ class RecEvent extends Component {
  
     render (){
       return(
-        <div className="card">
+        <div className="card rec-content">
           <div className="card-block">
             {this.state.similarVenues ?  (
               <div className="row">

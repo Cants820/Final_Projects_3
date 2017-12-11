@@ -4,44 +4,53 @@ import SavedEvent from '../SavedEvent'
 
 class Saved extends Component{
   state = {
-    savedVenues : []
+    savedVenues : [],
+    //picUrl:""
   }
+
+
+
 
   componentDidMount(){
     console.log("loadVenues")
-    API.getUserVenues("5a21c4c871868f1f9cd90959")
+    API.getUserVenues("111466030326545450170")
     .then(res => {
       console.log("result", res)
       this.setState({savedVenues: res.data})
       })
     .catch(err => console.log(err));
+
+    //  API.getVenuesPic(this.props.venueId)
+    //  .then((data) => {
+    //   console.log("I am in saved.js")
+    //   this.setState({picUrl:data})
+    // })
+
+    
   }
 
   render() {
     return(
       <div>
         <div className="container">
-          <div className="panel panel-primary">
-            <div className="panel-heading">
-              Saved Venues
-            </div>
-            <div className="panel-body">
-              {
-                this.state.savedVenues ? 
+
+        <h1 className='save-header'>Saved Event</h1>
+             {
+                this.state.savedVenues ?
                 (this.state.savedVenues.map ((venue,index) => (
-                  <SavedEvent 
-                   
+                  <SavedEvent
+                  
                    // key = {venue._id}
                     key = {index}
                     saved = {true}
                     id ={venue}
+                    url={venue.url}
                   />
-                ))) 
+                )))
                 : (<h3>No Saved Venues</h3>)
               }
-            </div>
-          </div>
         </div>
+        }
       </div>
     );
   }

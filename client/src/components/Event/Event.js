@@ -42,11 +42,15 @@ render (){
   return(
       <div className="card">
               {this.state.picUrl ? (<img src={this.state.picUrl}></img>):(<div></div>)}
-          <a href={this.state.url} target="_blank">
+          
             <div className="overlay">
-              <h1> {this.state.name} </h1>
+              
+              <p> {this.state.name} </p>
+                <button className='btn btn-danger' onClick= {this.handleSaveVenue}>Save Venue</button>
+                <a className='btn btn-info margin-top' href={this.props.url}>View Venue</a>
+                <img src={this.props.picUrl} />
       </div>
-          </a>
+          
       </div>
     );
   }

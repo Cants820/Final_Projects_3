@@ -1,47 +1,35 @@
 import React, { Component } from "react";
 import API from '../../utils/API';
-import Results from '../Results';
-import axios from 'axios';
+import Results from '../Results'
 
 
 class Search extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      userId: "",
+  state = {
     location: "",
     category: "4d4b7104d754a06370d81259",
     venues: []
-    }
-  }
-
-  componentDidUpdate(){
-    console.log(this.state)
-  }
-//only works locally  - fix
-  componentWillMount() {
-    axios.get('http://localhost:3001/checksession')
-      // .then(data => data.json())
-      .then(result => {
-        this.setState({ userId: result })
-        console.log('result from check session :: \n', result)})
   }
 
   componentDidMount() {
-    this.trending();
-  }
-  componentDidUpdate() {
-    console.log("Update",this.state)
-  }
-
-  trending = () => {
-
-    API.searchTrending('San Fransisco')
+    //this.trending();
+    API.searchVenues('San Fransisco','4d4b7104d754a06370d81259')
     .then((res) => {
       console.log("response",res.data.response.venues)
       this.setState({ venues: res.data.response.venues})
     });
   }
+  // componentDidUpdate() {
+  //   console.log("Update",this.state)
+  // }
+
+  // trending = () => {
+
+  //   API.searchTrending('San Fransisco')
+  //   .then((res) => {
+  //     console.log("response",res.data.response.venues)
+  //     this.setState({ venues: res.data.response.venues})
+  //   });
+  //}
 
 
   handleInputChange = event => {
@@ -50,7 +38,6 @@ class Search extends Component {
       [name]: value
     });
   }
-
 
   handleFormSubmit = (event) => {
     event.preventDefault();

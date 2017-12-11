@@ -11,6 +11,10 @@ Users can type a location and choose category in a dropbox. Searches contain thr
 ### Search Cards 
 ![search](https://user-images.githubusercontent.com/30422279/33823812-395955c6-de11-11e7-8d18-6340eada9bbf.PNG)
 
+### Trending Venues
+
+### Saved Venues
+
 ### Recommendation
 
 
