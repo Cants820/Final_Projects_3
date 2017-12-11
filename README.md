@@ -4,8 +4,16 @@ An application that searches restaurants, landmarks, and musuems based on user l
 
 ## Getting Started
 
+Users can type a location and choose category in a dropbox. Searches contain three pieces of information: name, images, and two buttons containing both a save button and link to an external site containing more detail of the venue. Users can also sign up and register using Google Authorization using passport. When a user is successfully register, they will have the ability to save venues. Saved venues can be views for later. In additon, the recommendation panel suggests venues based on all saved venues. 
+
+## Features
+ 
+Search Cards 
+
+Recommendation
 
 
+Google Authentication
 
 
 ## Technologies Used
