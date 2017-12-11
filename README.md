@@ -2,9 +2,7 @@
 
 ## Overview
 
-## Purpose 
-
-## Strategy
+## Getting Started
 
 ## Technologies Used
 Node.js, React.js, MongoDB, Express, React-Bootstrap
