@@ -1,5 +1,4 @@
-![readme](https://user-images.githubusercontent.com/30422279/33820457-61782fb2-de04-11e7-8cb8-fc993a12d4e1.PNG)
-
+![logo](https://user-images.githubusercontent.com/30422279/33820868-4e1de4aa-de06-11e7-8854-eb4a6110e0ae.PNG)
 ## Overview
 
 ## Getting Started
