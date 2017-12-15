@@ -12,11 +12,11 @@ class Search extends Component {
 
   componentDidMount() {
     //this.trending();
-    API.searchVenues('San Fransisco','4d4b7104d754a06370d81259')
-    .then((res) => {
-      console.log("response",res.data.response.venues)
-      this.setState({ venues: res.data.response.venues})
-    });
+    // API.searchVenues('San Fransisco','4bf58dd8d48988d181941735')
+    // .then((res) => {
+    //   console.log("response",res.data.response.venues)
+    //   this.setState({ venues: res.data.response.venues})
+    // });
   }
   // componentDidUpdate() {
   //   console.log("Update",this.state)
